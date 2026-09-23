@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SHUJAA-SOC LITE - EldoHub Buildathon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial;background:#f0fdf4;margin:0;padding:15px}
+.header{background:#065f46;color:white;padding:15px;border-radius:10px;text-align:center}
+.card{background:white;padding:15px;border-radius:10px;margin-top:15px;box-shadow:0 2px 5px #ccc}
+button{background:#059669;color:white;border:none;padding:10px 15px;border-radius:5px;cursor:pointer}
+input,textarea,select{width:100%;padding:8px;margin:5px 0;border:1px solid #ccc;border-radius:5px}
+.threat{color:red;font-weight:bold}.safe{color:green;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="header">
+<h2>🛡️ SHUJAA-SOC LITE</h2>
+<p>Community HelpDesk + Cyber Defense - Eldoret</p>
+<button onclick="toggleLang()">Badilisha Lugha / Switch Language</button>
+</div>
+
+<div class="card">
+<h3 id="t1">🎫 Create IT Support Ticket</h3>
+<select id="issue"><option>Computer Slow</option><option>Printer Not Working</option><option>Clicked Suspicious Link</option><option>Email Hacked</option></select>
+<textarea id="desc" placeholder="Describe problem..."></textarea>
+<button onclick="createTicket()">Submit Ticket</button>
+<div id="tickets"></div>
+</div>
+
+<div class="card">
+<h3 id="t2">🔍 SOC Lite - Threat Scanner</h3>
+<p id="t2d">Paste suspicious IP, Domain or Log line from your system:</p>
+<input type="text" id="ioc" placeholder="e.g. 195.2.253.92 or hiloti.com">
+<button onclick="scanIOC()">Scan Now</button>
+<div id="result" style="margin-top:10px"></div>
+</div>
+
+<div class="card">
+<h3>🚫 Auto Blocklist Generated</h3>
+<p>Known Hiloti Dropper IOCs from our investigation:</p>
+<code>
+195.2.253.92<br>185.220.101.34<br>hiloti-malware.com<br>dropper-update.net
+</code>
+</div>
+
+<script>
+const iocs = ["195.2.253.92","185.220.101.34","hiloti-malware.com","dropper-update.net"];
+let sw=false;
+function createTicket(){
+let issue=document.getElementById('issue').value;
+let d=document.getElementById('desc').value;
+document.getElementById('tickets').innerHTML+=`<p>✅ Ticket: ${issue} - ${d} - <b>Status: Open</b></p>`;
+}
+function scanIOC(){
+let val=document.getElementById('ioc').value.toLowerCase();
+let res=document.getElementById('result');
+if(iocs.some(i=>val.includes(i))){
+res.innerHTML=`<p class='threat'>🚨 THREAT FOUND! This matches Hiloti Dropper. ACTION: Block this IP & Run antivirus NOW!</p>`;
+}else if(val===""){
+res.innerHTML=`<p>Enter something to scan</p>`;
+}else{
+res.innerHTML=`<p class='safe'>✅ SAFE - No known threat found in our database</p>`;
+}
+}
+function toggleLang(){
+sw=!sw;
+if(sw){
+document.getElementById('t1').innerText="🎫 Fungua Tiketi ya IT";
+document.getElementById('t2').innerText="🔍 Kichunguzi cha Usalama";
+document.getElementById('t2d').innerText="Weka IP au link inayotia shaka:";
+}else{
+document.getElementById('t1').innerText="🎫 Create IT Support Ticket";
+document.getElementById('t2').innerText="🔍 SOC Lite - Threat Scanner";
+document.getElementById('t2d').innerText="Paste suspicious IP, Domain or Log line from your system:";
+}
+}
+</script>
+</body>
+</html>
