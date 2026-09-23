@@ -1,79 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>SHUJAA-SOC LITE - EldoHub Buildathon</title>
+<title>SHUJAA-SOC LITE V2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body{font-family:Arial;background:#f0fdf4;margin:0;padding:15px}
 .header{background:#065f46;color:white;padding:15px;border-radius:10px;text-align:center}
 .card{background:white;padding:15px;border-radius:10px;margin-top:15px;box-shadow:0 2px 5px #ccc}
-button{background:#059669;color:white;border:none;padding:10px 15px;border-radius:5px;cursor:pointer}
+button{background:#059669;color:white;border:none;padding:10px 15px;border-radius:5px;cursor:pointer;margin:2px}
 input,textarea,select{width:100%;padding:8px;margin:5px 0;border:1px solid #ccc;border-radius:5px}
 .threat{color:red;font-weight:bold}.safe{color:green;font-weight:bold}
+.ticket-item{border-left:4px solid #059669;padding:8px;margin:5px 0;background:#ecfdf5}
 </style>
 </head>
 <body>
 <div class="header">
-<h2>🛡️ SHUJAA-SOC LITE</h2>
+<h2>🛡️ SHUJAA-SOC LITE V2</h2>
 <p>Community HelpDesk + Cyber Defense - Eldoret</p>
-<button onclick="toggleLang()">Badilisha Lugha / Switch Language</button>
+<p>Tickets Saved: <span id="count">0</span> | <button onclick="toggleLang()">Badilisha Lugha</button> <button onclick="exportTickets()">Download Report</button></p>
 </div>
 
 <div class="card">
 <h3 id="t1">🎫 Create IT Support Ticket</h3>
 <select id="issue"><option>Computer Slow</option><option>Printer Not Working</option><option>Clicked Suspicious Link</option><option>Email Hacked</option></select>
+<input type="text" id="name" placeholder="Your Name / Jina - e.g. Mama Mboga">
 <textarea id="desc" placeholder="Describe problem..."></textarea>
 <button onclick="createTicket()">Submit Ticket</button>
+</div>
+
+<div class="card">
+<h3>📋 All Tickets - Where Tickets Go (Admin View)</h3>
+<p>This is where YOU as IT Support see all tickets from Mama Mboga. Stored in browser.</p>
 <div id="tickets"></div>
+<button onclick="clearAll()" style="background:#dc2626">Clear All Tickets</button>
 </div>
 
 <div class="card">
 <h3 id="t2">🔍 SOC Lite - Threat Scanner</h3>
-<p id="t2d">Paste suspicious IP, Domain or Log line from your system:</p>
-<input type="text" id="ioc" placeholder="e.g. 195.2.253.92 or hiloti.com">
+<p id="t2d">Paste suspicious IP, Domain or Log:</p>
+<input type="text" id="ioc" placeholder="e.g. 195.2.253.92">
 <button onclick="scanIOC()">Scan Now</button>
 <div id="result" style="margin-top:10px"></div>
 </div>
 
-<div class="card">
-<h3>🚫 Auto Blocklist Generated</h3>
-<p>Known Hiloti Dropper IOCs from our investigation:</p>
-<code>
-195.2.253.92<br>185.220.101.34<br>hiloti-malware.com<br>dropper-update.net
-</code>
-</div>
-
 <script>
 const iocs = ["195.2.253.92","185.220.101.34","hiloti-malware.com","dropper-update.net"];
-let sw=false;
+let tickets = JSON.parse(localStorage.getItem('shujaaTickets') || '[]');
+
+function save(){ localStorage.setItem('shujaaTickets', JSON.stringify(tickets)); render(); }
+
 function createTicket(){
 let issue=document.getElementById('issue').value;
-let d=document.getElementById('desc').value;
-document.getElementById('tickets').innerHTML+=`<p>✅ Ticket: ${issue} - ${d} - <b>Status: Open</b></p>`;
+let name=document.getElementById('name').value || 'Anonymous';
+let desc=document.getElementById('desc').value;
+if(!desc){alert('Describe problem!');return;}
+let t={id:Date.now(), name, issue, desc, time:new Date().toLocaleString()};
+tickets.push(t); save();
+document.getElementById('desc').value=''; document.getElementById('name').value='';
+alert('Ticket saved! Sasa iko kwa Admin View chini');
 }
+
+function render(){
+let div=document.getElementById('tickets');
+document.getElementById('count').innerText=tickets.length;
+if(tickets.length==0){div.innerHTML='<p>No tickets yet</p>';return;}
+div.innerHTML=tickets.map(t=>`<div class='ticket-item'><b>#${t.id}</b> - ${t.name} - ${t.issue}<br>${t.desc}<br><small>${t.time}</small> <button onclick="deleteT(${t.id})" style="background:#dc2626;padding:2px 6px">X</button></div>`).join('');
+}
+function deleteT(id){ tickets=tickets.filter(t=>t.id!=id); save(); }
+function clearAll(){ if(confirm('Delete all?')){tickets=[]; save();} }
+function exportTickets(){ let txt=tickets.map(t=>`${t.time} | ${t.name} | ${t.issue} | ${t.desc}`).join('\n'); let blob=new Blob([txt],{type:'text/plain'}); let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Shujaa_Tickets_Report.txt';a.click(); }
+
 function scanIOC(){
 let val=document.getElementById('ioc').value.toLowerCase();
 let res=document.getElementById('result');
-if(iocs.some(i=>val.includes(i))){
-res.innerHTML=`<p class='threat'>🚨 THREAT FOUND! This matches Hiloti Dropper. ACTION: Block this IP & Run antivirus NOW!</p>`;
-}else if(val===""){
-res.innerHTML=`<p>Enter something to scan</p>`;
-}else{
-res.innerHTML=`<p class='safe'>✅ SAFE - No known threat found in our database</p>`;
+if(iocs.some(i=>val.includes(i))){res.innerHTML=`<p class='threat'>🚨 THREAT FOUND! Block ${val} NOW!</p>`;}
+else if(val==""){res.innerHTML=`<p>Enter something</p>`;}else{res.innerHTML=`<p class='safe'>✅ SAFE</p>`;}
 }
-}
-function toggleLang(){
-sw=!sw;
-if(sw){
-document.getElementById('t1').innerText="🎫 Fungua Tiketi ya IT";
-document.getElementById('t2').innerText="🔍 Kichunguzi cha Usalama";
-document.getElementById('t2d').innerText="Weka IP au link inayotia shaka:";
-}else{
-document.getElementById('t1').innerText="🎫 Create IT Support Ticket";
-document.getElementById('t2').innerText="🔍 SOC Lite - Threat Scanner";
-document.getElementById('t2d').innerText="Paste suspicious IP, Domain or Log line from your system:";
-}
-}
+function toggleLang(){}
+render();
 </script>
 </body>
 </html>
