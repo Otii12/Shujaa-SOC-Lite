@@ -1,124 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SHUJAA-SOC LITE - Modern</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,sans-serif;background:#f4f5f7;color:#111827;display:flex;min-height:100vh}
-.side{width:250px;background:#1e3a2e;color:#9ab0a0;padding:20px 14px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
-.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:15px;margin-bottom:22px}
-.logo i{background:#22c55e;color:#052e16;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-style:normal}
-.menu button{width:100%;display:flex;gap:10px;align-items:center;background:transparent;border:none;color:#9ab0a0;padding:11px 12px;border-radius:10px;font-size:13px;font-weight:500;cursor:pointer;margin:3px 0;text-align:left}
-.menu button.active{background:#2a4d3a;color:#fff}
-.main{flex:1;padding:20px 26px}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}
-.search{flex:1;max-width:380px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:10px 14px;font-size:13px}
-.hero{background:linear-gradient(105deg,#163d24 0%,#1d5a33 45%,#2fb36a 100%);border-radius:18px;padding:26px 28px;color:white;position:relative}
-.hero.kicker{font-size:10px;letter-spacing:1px;opacity:.8;font-weight:700}
-.hero h1{font-size:32px;font-weight:800;line-height:1.05;margin:8px 0}
-.hero p{font-size:13px;opacity:.9;max-width:460px;margin-top:6px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
-.s{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:14px 16px}
-.s small{color:#64748b;font-size:11px}.s h2{font-size:22px;margin:6px 0}.s.up{font-size:11px;color:#16a34a}
-.layout{display:grid;grid-template-columns:2.2fr.9fr;gap:16px}
-.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px}
-.label{font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.6px;margin:12px 0 5px;display:block}
-.inp{width:100%;padding:11px 12px;border:1px solid #e5e7eb;border-radius:10px;background:#f9fafb;font-size:13px}
-.inp:focus{outline:none;border-color:#22c55e;background:#fff}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.btn{width:100%;background:#173a26;color:#fff;border:none;padding:13px;border-radius:10px;font-weight:700;cursor:pointer;margin-top:14px}
-.btn:hover{background:#1f4d33}
-.t{border:1px solid #e5e7eb;border-radius:12px;padding:12px;margin:8px 0;font-size:13px}
-@media(max-width:1000px){.stats{grid-template-columns:1fr 1fr}.layout{grid-template-columns:1fr}.side{display:none}.top{flex-direction:column;align-items:stretch}}
-</style>
-</head>
-<body>
-<div class="side">
-<div class="logo"><i>🛡</i> SHUJAA-SOC LITE</div>
-<div class="menu">
-<button class="active">◧ Dashboard</button>
-<button>🎫 Tickets</button>
-<button>⏱ SLAs</button>
-<button>📚 Knowledge Base</button>
-<button>📊 Reports</button>
-<button>⚙ Settings</button>
-</div>
-<div style="margin-top:auto;display:flex;gap:8px;align-items:center;color:#fff;font-size:12px"><div style="width:30px;height:30px;background:#f59e0b;border-radius:50%;display:grid;place-items:center;color:#000;font-weight:800">A</div>Alex Carter<br><small style="color:#9ab0a0">Admin</small></div>
-</div>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SHUJAA-SOC LITE - Modern</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui;background:#f4f5f7;color:#111827;display:flex;min-height:100vh}.side{width:250px;background:#1e3a2e;color:#9ab0a0;padding:20px 14px;position:sticky;top:0;height:100vh}.menu button{width:100%;display:flex;gap:10px;background:transparent;border:none;color:#9ab0a0;padding:11px;border-radius:10px;margin:3px 0;cursor:pointer}.menu button.active{background:#2a4d3a;color:#fff}.main{flex:1;padding:20px}.hero{background:linear-gradient(105deg,#163d24,#2fb36a);border-radius:18px;padding:26px;color:#fff}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}.s{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:14px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px}.inp{width:100%;padding:11px;border:1px solid #e5e7eb;border-radius:10px;background:#f9fafb;margin:5px 0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{width:100%;background:#173a26;color:#fff;border:none;padding:13px;border-radius:10px;font-weight:700;cursor:pointer;margin-top:10px}.label{font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;margin:8px 0 3px;display:block}.t{border:1px solid #e5e7eb;border-radius:12px;padding:12px;margin:8px 0}.badge{padding:3px 8px;border-radius:20px;font-size:10px;font-weight:700}.open{background:#fef3c7;color:#92400e}.prog{background:#dbeafe;color:#1e40af}.done{background:#dcfce7;color:#166534}.toast{position:fixed;top:20px;right:20px;background:#065f46;color:white;padding:14px 18px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none;z-index:999}@media(max-width:900px){.stats{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.side{display:none}}</style></head><body>
+<div class="toast" id="toast"></div>
+<div class="side"><h3 style="color:#fff">🛡 SHUJAA-SOC LITE</h3><div class="menu" style="margin-top:20px"><button class="active">Dashboard</button><button>Tickets (<span id="cBadge">0</span>)</button></div><div style="margin-top:auto;color:#fff;font-size:12px">Admin Mode</div></div>
 <div class="main">
-<div class="top">
-<input class="search" id="globalSearch" placeholder="🔍 Search tickets, customers, knowledge base...">
-<div style="display:flex;gap:8px"><button style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:8px 14px;font-size:13px">🔔 5</button><button style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:8px 14px;font-size:13px">+ New Ticket</button></div>
+<div class="hero"><small>⚡ 24/7 MONITORING & INCIDENT RESPONSE</small><h1 style="font-size:30px;margin:8px 0">Secure Your Business. Simplified.</h1><p style="font-size:13px;opacity:.9">Create and track support tickets with confidence. Get help in minutes.</p></div>
+<div class="stats"><div class="s"><small>Active Tickets</small><h2 id="c1">0</h2></div><div class="s"><small>In Progress</small><h2 id="cP">0</h2></div><div class="s"><small>Cleared / Resolved</small><h2 id="cD" style="color:#16a34a">0</h2></div><div class="s"><small>Satisfaction</small><h2>4.8/5</h2></div></div>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:16px"><div class="card"><h3>Create New Ticket</h3><div class="grid2"><div><span class="label">Full Name *</span><input id="name" class="inp" placeholder="e.g. Alex Carter"></div><div><span class="label">Phone / WhatsApp *</span><input id="phone" class="inp" placeholder="0712 345 678"></div></div><div class="grid2"><div><span class="label">Email Address (Optional)</span><input id="email" class="inp" placeholder="alex@example.com"></div><div><span class="label">Department / Location *</span><select id="dept" class="inp"><option value="">Select</option><option>Reception</option><option>Cyber 1-5</option><option>Cyber 6-10</option><option>Office</option><option>Shop</option></select></div></div><div class="grid2"><div><span class="label">Priority</span><select id="prio" class="inp"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div><div><span class="label">Category</span><select id="issue" class="inp"><option>Computer Slow</option><option>Printer</option><option>Suspicious Link</option><option>No Internet</option><option>Virus</option></select></div></div><span class="label">Describe Problem *</span><textarea id="desc" class="inp" rows="3"></textarea><button class="btn" onclick="addTicket()">+ Create Ticket</button><div id="okMsg"></div></div><div class="card"><h4>Recent Tickets - Status</h4><div id="recent" style="margin-top:10px;font-size:13px"></div><hr style="margin:12px 0"><input id="searchT" class="inp" placeholder="Search phone, email, dept..." oninput="render()"><div id="list" style="margin-top:8px"></div></div></div>
 </div>
-
-<div class="hero">
-<div class="kicker">⚡ 24/7 MONITORING & INCIDENT RESPONSE</div>
-<h1>Secure Your Business.<br>Simplified.</h1>
-<p>24/7 monitoring, incident response, and continuous training to keep your organization safe and compliant.</p>
-<div style="margin-top:14px"><span style="background:#fff;color:#163d24;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700">🟢 System Operational</span></div>
-</div>
-
-<div class="stats">
-<div class="s"><small>📄 Active Tickets</small><h2 id="c1">0</h2><div class="up">↗ 12% vs last week</div></div>
-<div class="s"><small>⏱ Avg. Response Time</small><h2>1.2h</h2><div class="up">↘ 5% faster</div></div>
-<div class="s"><small>✅ Resolved Today</small><h2 id="c2">0</h2><small>🎯 Target 95%</small></div>
-<div class="s"><small>⭐ Customer Satisfaction</small><h2>4.8/5</h2><small>Based on 124 reviews</small></div>
-</div>
-
-<div class="layout">
-<div class="card">
-<h3 style="font-size:16px">Create New Ticket</h3><p style="font-size:12px;color:#64748b;margin:4px 0 12px">Log a new customer issue and assign priority</p>
-
-<div class="grid2">
-<div><span class="label">Full Name *</span><input id="name" class="inp" placeholder="e.g. Alex Carter"></div>
-<div><span class="label">Phone / WhatsApp *</span><input id="phone" class="inp" placeholder="0712 345 678"></div>
-</div>
-<div class="grid2">
-<div><span class="label">Email Address (Optional)</span><input id="email" class="inp" placeholder="e.g. alex@example.com"></div>
-<div><span class="label">Department / Location *</span><select id="dept" class="inp"><option value="">Select department / location</option><option>Reception / Counter</option><option>Cyber Cafe - Comp 1-5</option><option>Cyber Cafe - Comp 6-10</option><option>Office / Manager</option><option>Classroom / Lab</option><option>Shop / Store</option><option>Remote / Home</option></select></div>
-</div>
-<div class="grid2">
-<div><span class="label">Priority Level</span><select id="prio" class="inp"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div>
-<div><span class="label">Category</span><select id="issue" class="inp"><option>Computer Slow</option><option>Printer Not Working</option><option>Clicked Suspicious Link</option><option>Email Hacked</option><option>No Internet / WiFi</option><option>Virus Alert</option></select></div>
-</div>
-<span class="label">Description *</span><textarea id="desc" class="inp" rows="3" placeholder="Describe the issue in detail..."></textarea>
-<button class="btn" onclick="addTicket()">+ Create Ticket</button>
-<div id="okMsg"></div>
-</div>
-
-<div class="card">
-<h4 style="font-size:14px">Recent Tickets</h4>
-<div id="recent" style="margin-top:12px"></div>
-<hr style="margin:14px 0;border:none;border-top:1px solid #e5e7eb">
-<h4 style="font-size:13px">All Tickets (Admin)</h4>
-<input id="searchT" class="inp" placeholder="Search phone, email, dept..." oninput="render()" style="margin-top:8px">
-<div id="list" style="margin-top:10px"></div>
-<button onclick="exportCSV()" style="margin-top:10px;width:100%;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:10px;font-size:12px;cursor:pointer">⬇️ Export CSV with Phone, Email, Dept</button>
-</div>
-</div>
-</div>
-
 <script>
-let tickets=JSON.parse(localStorage.getItem('shujaa_final_home')||'[]');
-function save(){localStorage.setItem('shujaa_final_home',JSON.stringify(tickets));render();}
-function addTicket(){
-let n=document.getElementById('name').value.trim(), p=document.getElementById('phone').value.trim(), e=document.getElementById('email').value.trim(), d=document.getElementById('dept').value, iss=document.getElementById('issue').value, pr=document.getElementById('prio').value, de=document.getElementById('desc').value.trim();
-if(!n||!p||!d||!de){alert('Fill Full Name *, Phone *, Department * and Description *');return;}
-tickets.push({id:Date.now().toString().slice(-5),n,p,e,d,iss,pr,de,t:new Date().toLocaleString()});
-save();
-document.getElementById('okMsg').innerHTML=`<div style="background:#ecfdf5;border:1px solid #a7f3d0;padding:12px;border-radius:10px;margin-top:12px;font-size:13px">✅ Ticket #${tickets[tickets.length-1].id} Created!<br>📞 ${p} | ✉️ ${e||'No email provided'} | 📍 ${d} | [${pr}]</div>`;
-document.getElementById('name').value='';document.getElementById('phone').value='';document.getElementById('email').value='';document.getElementById('desc').value='';
-}
-function render(){
-let q=(document.getElementById('searchT')?.value||'').toLowerCase();
-let f=tickets.filter(x=>(x.n+x.p+(x.e||'')+x.d+x.iss).toLowerCase().includes(q));
-document.getElementById('c1').innerText=tickets.length; document.getElementById('c2').innerText=tickets.length;
-document.getElementById('list').innerHTML=f.map(x=>`<div class="t"><b>#${x.id} ${x.n}</b> <small style="background:#f1f5f9;padding:2px 6px;border-radius:10px">${x.pr}</small><br><span style="font-size:12px">📞 <b>${x.p}</b> | ✉️ ${x.e||'No email'} | 📍 ${x.d}<br>Category: ${x.iss}<br>${x.de}<br><small>${x.t}</small></span><br><a href="https://wa.me/254${x.p.replace(/^0/,'').replace(/\D/g,'')}" target="_blank">💬 WhatsApp</a> | <a href="tel:${x.p}">📞 Call</a> ${x.e?`| <a href="mailto:${x.e}">✉️ Email</a>`:''}</div>`).join('')||'<small style="color:#94a3b8">No tickets</small>';
-document.getElementById('recent').innerHTML=tickets.slice(-4).reverse().map(x=>`<div style="padding:8px 0;border-bottom:1px solid #f1f5f9"><b style="font-size:13px">${x.n}</b><br><small style="color:#64748b">${x.p} • ${x.e||'no email'} • ${x.d}</small></div>`).join('')||'<small style="color:#94a3b8">No recent tickets</small>';
-}
-function exportCSV(){let csv='ID,Name,Phone,Email,Department,Category,Priority,Description,Time\n'+tickets.map(t=>`"${t.id}","${t.n}","${t.p}","${t.e}","${t.d}","${t.iss}","${t.pr}","${t.de.replace(/"/g,'""')}","${t.t}"`).join('\n');let b=new Blob([csv],{type:'text/csv'});let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Shujaa_Tickets.csv';a.click();}
+let tickets=JSON.parse(localStorage.getItem('shujaa_v61')||'[]');
+function toast(msg){let t=document.getElementById('toast');t.innerText=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3000);}
+function save(){localStorage.setItem('shujaa_v61',JSON.stringify(tickets));render();}
+function addTicket(){let n=name.value.trim(),p=phone.value.trim(),e=email.value.trim(),d=dept.value,iss=issue.value,pr=prio.value,de=desc.value.trim();if(!n||!p||!d||!de){alert('Fill Name, Phone, Dept, Desc');return;}tickets.push({id:Date.now().toString().slice(-5),n,p,e,d,iss,pr,de,t:new Date().toLocaleString(),status:'Open'});save();okMsg.innerHTML=`<div style="background:#ecfdf5;padding:10px;border-radius:10px;margin-top:10px;font-size:13px">✅ Ticket #${tickets[tickets.length-1].id} Created - Status: OPEN</div>`;name.value=phone.value=email.value=desc.value='';toast('Ticket Created!');}
+function updateStatus(id,newStatus){let ticket=tickets.find(x=>x.id==id);if(!ticket)return;ticket.status=newStatus;if(newStatus=='Cleared'){ticket.clearedAt=new Date().toLocaleString();toast(`✅ Ticket #${id} Marked as CLEARED - Notifying ${ticket.n} via ${ticket.p}`);}else if(newStatus=='In Progress'){toast(`🔧 Ticket #${id} is now In Progress - Team responding`);}save();}
+function render(){let q=(searchT.value||'').toLowerCase();let f=tickets.filter(x=>(x.n+x.p+(x.e||'')+x.d).toLowerCase().includes(q));c1.innerText=tickets.filter(x=>x.status=='Open').length;cP.innerText=tickets.filter(x=>x.status=='In Progress').length;cD.innerText=tickets.filter(x=>x.status=='Cleared').length;cBadge.innerText=tickets.length;recent.innerHTML=tickets.slice(-5).reverse().map(x=>`<div style="padding:8px 0;border-bottom:1px solid #f1f5f9"><b>${x.n}</b> <span class="badge ${x.status=='Open'?'open':x.status=='In Progress'?'prog':'done'}">${x.status}</span><br><small>${x.p} • ${x.d} • ${x.pr}</small></div>`).join('')||'No tickets';list.innerHTML=f.map(x=>`<div class="t" style="border-left:5px solid ${x.status=='Cleared'?'#16a34a':x.status=='In Progress'?'#2563eb':'#f59e0b'}"><b>#${x.id} ${x.n}</b> <span class="badge ${x.status=='Open'?'open':x.status=='In Progress'?'prog':'done'}">${x.status}</span><br><small>📞 ${x.p} | ✉️ ${x.e||'No email'} | 📍 ${x.d} | ${x.iss}</small><br><small>${x.de}</small><br><small>${x.t} ${x.clearedAt?'| Cleared: '+x.clearedAt:''}</small><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${x.status!='In Progress'&&x.status!='Cleared'?`<button onclick="updateStatus('${x.id}','In Progress')" style="background:#2563eb;color:#fff;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;font-size:11px">🔧 Mark Responded</button>`:''}${x.status!='Cleared'?`<button onclick="updateStatus('${x.id}','Cleared')" style="background:#16a34a;color:#fff;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;font-size:11px">✅ Mark Cleared & Notify</button>`:''}${x.status=='Cleared'?`<span style="font-size:11px;color:#16a34a;font-weight:700">✅ Notified & Cleared</span>`:''}<a href="https://wa.me/254${x.p.replace(/^0/,'').replace(/\D/g,'')}" target="_blank"><button style="background:#25D366;color:#fff;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;font-size:11px">💬 WhatsApp Client</button></a></div></div>`).join('')||'No tickets';}
 render();
 </script>
 </body>
