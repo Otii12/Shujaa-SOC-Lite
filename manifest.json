@@ -1,0 +1,10 @@
+{
+  "name": "SHUJAA-SOC LITE",
+  "short_name": "SHUJAA",
+  "description": "Community HelpDesk + Cyber Defense - Eldoret",
+  "start_url": "/Shujaa-SOC-Lite/",
+  "display": "standalone",
+  "background_color": "#0f5d41",
+  "theme_color": "#0f5d41",
+  "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/1087/1087815.png", "sizes": "512x512", "type": "image/png" }]
+}
