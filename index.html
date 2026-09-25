@@ -2,116 +2,108 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHUJAA-SOC LITE V4.1</title>
+<title>SHUJAA-SOC LITE V5 - Modern</title>
 <link rel="manifest" href="manifest.json">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f8fb;--card:#fff;--green:#0f5d41;--accent:#10b981;--text:#111827}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text);display:flex;min-height:100vh}
-.sidebar{width:260px;background:var(--green);color:white;padding:20px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
-.nav button{width:100%;text-align:left;background:transparent;border:none;color:#c7f0e0;padding:12px;border-radius:8px;cursor:pointer;margin:4px 0}
-.nav button.active,.nav button:hover{background:rgba(255,255,255,.15);color:white}
-.main{flex:1;padding:24px;max-width:1150px}
-.card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 4px 20px rgba(0,0,0,.06);margin-bottom:18px}
-.input,select,textarea{width:100%;padding:11px;border:1px solid #e5e7eb;border-radius:10px;margin:6px 0;font-size:14px}
-.btn{background:var(--green);color:white;border:none;padding:11px 16px;border-radius:10px;cursor:pointer;font-weight:700}
-.btn-wa{background:#25D366}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:900px){.grid2{grid-template-columns:1fr}.sidebar{display:none}}
-.login-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:100}
-.login-box{background:white;padding:24px;border-radius:16px;width:360px}
-.ticket{border:1px solid #eef2f7;border-radius:12px;padding:14px;margin:8px 0}
-.prio-High{border-left:5px solid #ef4444}.prio-Urgent{border-left:5px solid #991b1b;background:#fef2f2}.prio-Medium{border-left:5px solid #f59e0b}.prio-Low{border-left:5px solid #10b981}
+:root{--bg:#f8fafc;--card:#ffffff;--green:#065f46;--green2:#10b981;--text:#0f172a;--border:#e2e8f0}
+*{box-sizing:border-box}body{margin:0;font-family:'Plus Jakarta Sans',Inter,sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh}
+.sidebar{width:270px;background:linear-gradient(180deg,#064e3b,#065f46);color:white;padding:24px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
+.nav button{width:100%;text-align:left;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:#d1fae5;padding:12px 14px;border-radius:12px;cursor:pointer;margin:6px 0;font-weight:600;transition:.2s}
+.nav button.active,.nav button:hover{background:white;color:#064e3b;transform:translateY(-1px)}
+.main{flex:1;padding:28px;max-width:1250px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.05);margin-bottom:20px}
+.input{width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:12px;margin:6px 0;font-size:14px;background:#f8fafc}
+.input:focus{outline:none;border-color:var(--green2);background:white}
+.btn{background:var(--green);color:white;border:none;padding:12px 18px;border-radius:12px;cursor:pointer;font-weight:700;transition:.2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(6,95,70,.3)}
+.btn-wa{background:#25D366}
+.hero{background:linear-gradient(135deg,#064e3b 0%,#10b981 100%);border-radius:24px;padding:32px;color:white;position:relative;overflow:hidden}
+.hero h1{font-size:32px;margin:0 0 8px}.hero p{opacity:.9;font-size:15px;max-width:600px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}.sidebar{display:none}}
+.badge{display:inline-block;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px}
+.ticket{border:1px solid var(--border);border-radius:16px;padding:16px;margin:10px 0;background:white}
+.prio-Urgent{border-left:6px solid #dc2626}.prio-High{border-left:6px solid #f59e0b}.prio-Medium{border-left:6px solid #3b82f6}.prio-Low{border-left:6px solid #10b981}
+.login-overlay{position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:100}
+.login-box{background:white;padding:28px;border-radius:20px;width:380px;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.label{font-size:12px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.5px;margin-top:8px;display:block}
 </style>
 </head>
 <body>
 <div class="sidebar">
-<h2>🛡️ SHUJAA V4.1</h2>
+<h2 style="display:flex;gap:8px;align-items:center;margin:0 0 28px">🛡️ SHUJAA V5</h2>
 <div class="nav">
-<button class="active" onclick="show('home',this)">🏠 Home (Public)</button>
+<button class="active" onclick="show('home',this)">🏠 Home</button>
 <button onclick="needAuth('dash',this)">📊 Dashboard</button>
-<button onclick="needAuth('tickets',this)">🎫 All Tickets</button>
+<button onclick="needAuth('tickets',this)">🎫 Tickets <span id="countBadge" style="float:right;background:white;color:#064e3b;padding:2px 8px;border-radius:10px;font-size:11px">0</span></button>
 <button onclick="show('scan',this)">🔍 Threat Scan</button>
 <button onclick="needAuth('settings',this)">⚙️ Settings</button>
 </div>
-<div style="margin-top:auto"><small id="authStatus">🔓 Public Mode</small><br><button onclick="logout()" class="btn" style="background:#dc2626;margin-top:8px;width:100%">Logout</button></div>
+<div style="margin-top:auto;padding:16px;background:rgba(0,0,0,.2);border-radius:14px"><small id="authStatus">🔓 Public Mode</small><br><button onclick="logout()" style="width:100%;margin-top:10px;background:#ef4444" class="btn">Logout</button></div>
 </div>
 
 <div class="main">
 <div id="homePage">
-<div class="card" style="background:linear-gradient(135deg,#0f5d41,#10b981);color:white">
-<h1 id="homeOrg">Kianna Cyber Services</h1><p>IT HelpDesk + SOC Lite for Eldoret SMEs. Works Offline. Install to PC.</p>
+<div class="hero">
+<h1>Secure Your Business. Simplified.</h1>
+<p>SHUJAA SOC Lite - Community HelpDesk + Cyber Defense built for Eldoret. Create tickets offline, track threats, call clients via WhatsApp.</p>
+<div style="margin-top:16px;display:flex;gap:10px"><span class="badge" style="background:rgba(255,255,255,.2)">✓ Offline Ready</span><span class="badge" style="background:rgba(255,255,255,.2)">✓ Install to PC</span><span class="badge" style="background:rgba(255,255,255,.2)">✓ PWA</span></div>
+</div>
+
+<div class="grid3">
+<div class="card"><h3 style="margin:0">⚡ Fast Support</h3><small>Phone + WhatsApp integrated</small></div>
+<div class="card"><h3 style="margin:0">🔒 SOC Lite</h3><small>Hiloti threat intel built-in</small></div>
+<div class="card"><h3 style="margin:0">📍 Location Aware</h3><small>Dept / Cyber tracking</small></div>
 </div>
 
 <div class="card">
-<h3>🎫 Create Support Ticket</h3>
+<h2 style="margin:0 0 6px">🎫 Create Support Ticket</h2><p style="margin:0 0 16px;color:#64748b;font-size:14px">Fill your contact - we will call you back instantly</p>
 <div class="grid2">
-<div><label>Full Name *</label><input id="name" class="input" placeholder="e.g. Mama Mboga"></div>
-<div><label>Phone / WhatsApp * (We will call you)</label><input id="phone" class="input" placeholder="0712 345 678"></div>
-</div>
-<div class="grid2">
-<div><label>Email (Optional)</label><input id="email" class="input" placeholder="mama@gmail.com"></div>
-<div><label>Department / Location *</label><select id="dept" class="input"><option value="">Select location</option><option>Reception / Counter</option><option>Cyber Cafe - Comp 1-5</option><option>Cyber Cafe - Comp 6-10</option><option>Office / Manager</option><option>Classroom / School</option><option>Shop / Store</option><option>Outside / Remote</option></select></div>
+<div><span class="label">Full Name *</span><input id="name" class="input" placeholder="e.g. Mama Mboga"></div>
+<div><span class="label">Phone / WhatsApp *</span><input id="phone" class="input" placeholder="0712 345 678"></div>
 </div>
 <div class="grid2">
-<div><label>Issue Category</label><select id="issue" class="input"><option>Computer Slow</option><option>Printer Not Working</option><option>Clicked Suspicious Link</option><option>Email Hacked</option><option>No Internet / WiFi</option><option>Virus Alert</option></select></div>
-<div><label>Priority</label><select id="prio" class="input"><option>Low</option><option>Medium</option><option>High</option><option>Urgent</option></select></div>
+<div><span class="label">Email Address (Optional)</span><input id="email" class="input" placeholder="name@gmail.com"></div>
+<div><span class="label">Department / Location *</span><select id="dept" class="input"><option value="">Select where you are</option><option>Reception / Counter</option><option>Cyber Cafe - Comp 1-5</option><option>Cyber Cafe - Comp 6-10</option><option>Office / Manager Room</option><option>Classroom / Lab</option><option>Shop / Store Front</option><option>Remote / Home</option></select></div>
 </div>
-<label>Describe Problem *</label><textarea id="desc" class="input" rows="3" placeholder="What happened?"></textarea>
-<button class="btn" style="width:100%;margin-top:8px" onclick="createTicket()">Submit Ticket →</button>
-<div id="myTicket" style="margin-top:12px"></div>
+<div class="grid2">
+<div><span class="label">Issue Category</span><select id="issue" class="input"><option>Computer Slow</option><option>Printer Not Working</option><option>Clicked Suspicious Link</option><option>Email Hacked</option><option>No Internet / WiFi</option><option>Virus / Malware Alert</option><option>System Not Booting</option></select></div>
+<div><span class="label">Priority Level</span><select id="prio" class="input"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></div>
 </div>
+<span class="label">Describe Problem *</span><textarea id="desc" class="input" rows="4" placeholder="Explain what happened..."></textarea>
+<button class="btn" style="width:100%;font-size:16px;margin-top:10px" onclick="createTicket()">Submit Ticket → Get Help Now</button>
+<div id="myTicket" style="margin-top:14px"></div>
 </div>
-
-<div id="dashPage" style="display:none"><div class="grid2"><div class="card"><h3>Open Tickets</h3><h1 id="count">0</h1></div><div class="card"><h3>Threats Blocked</h3><h1 id="blocked">0</h1></div></div><div class="card"><h3>Recent Tickets</h3><div id="recent"></div></div></div>
-
-<div id="ticketsPage" style="display:none" class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h3>All Tickets - Admin Only</h3><button class="btn" onclick="exportTickets()">⬇️ Export Report</button></div><input id="searchT" class="input" placeholder="Search by name, phone, dept..." oninput="render()"><div id="tickets"></div></div>
-
-<div id="scanPage" style="display:none" class="card"><h3>Threat Scanner</h3><input id="ioc" class="input" placeholder="e.g. 195.2.253.92"><button class="btn" onclick="scanIOC()">Scan Now</button><div id="result" style="margin-top:10px"></div></div>
-
-<div id="settingsPage" style="display:none" class="card"><h3>Settings - Admin Only</h3><label>Org Name</label><input id="orgInput" class="input"><label>Admin Username</label><input id="adminUser" class="input"><label>Admin Password</label><input id="adminPass" class="input" type="password"><label>Custom Threat IOCs (comma)</label><input id="customIocs" class="input"><button class="btn" onclick="saveSettings()">Save</button></div>
 </div>
 
-<div class="login-overlay" id="loginOverlay"><div class="login-box"><h3>🔐 Admin Login Required</h3><input id="loginUser" class="input" placeholder="Username"><input id="loginPass" class="input" type="password" placeholder="Password"><button class="btn" style="width:100%" onclick="login()">Login</button><p style="font-size:12px;margin-top:8px">Default: admin / shujaa2025</p><button onclick="closeLogin()" style="background:none;border:none;cursor:pointer">Cancel</button></div></div>
+<div id="dashPage" style="display:none"><div class="grid2"><div class="card"><h4 style="margin:0;color:#64748b">Open Tickets</h4><h1 id="count" style="font-size:42px;margin:8px 0">0</h1></div><div class="card"><h4 style="margin:0;color:#64748b">Threats Blocked</h4><h1 id="blocked" style="font-size:42px;margin:8px 0">0</h1></div></div><div class="card"><h3>Recent Activity</h3><div id="recent"></div></div></div>
+
+<div id="ticketsPage" style="display:none"><div class="card"><div style="display:flex;justify-content:space-between"><h2>All Tickets - Admin Only</h2><button class="btn" onclick="exportTickets()">⬇️ Export CSV</button></div><input id="searchT" class="input" placeholder="Search name, phone, email, dept..." oninput="render()"><div id="tickets" style="margin-top:12px"></div></div></div>
+
+<div id="scanPage" style="display:none"><div class="card"><h2>🔍 SOC Lite Threat Scanner</h2><p>Paste IP, Domain or Hash from logs</p><input id="ioc" class="input" placeholder="e.g. 195.2.253.92 or hiloti-malware.com"><button class="btn" onclick="scanIOC()">Scan with Intel</button><div id="result" style="margin-top:14px"></div></div></div>
+
+<div id="settingsPage" style="display:none"><div class="card"><h2>Settings</h2><span class="label">Organization Name</span><input id="orgInput" class="input"><span class="label">Admin Username</span><input id="adminUser" class="input"><span class="label">Admin Password</span><input id="adminPass" class="input" type="password"><span class="label">Custom Threat IOCs</span><input id="customIocs" class="input"><button class="btn" onclick="saveSettings()" style="margin-top:10px">Save Settings</button></div></div>
+</div>
+
+<div class="login-overlay" id="loginOverlay"><div class="login-box"><h3 style="margin-top:0">🔐 Admin Login</h3><input id="loginUser" class="input" placeholder="Username"><input id="loginPass" class="input" type="password" placeholder="Password"><button class="btn" style="width:100%" onclick="login()">Unlock Dashboard</button><p style="font-size:12px;color:#64748b">Default: admin / shujaa2025</p><button onclick="closeLogin()" style="background:none;border:none;cursor:pointer;width:100%">Cancel - Stay Public</button></div></div>
 
 <script>
-let tickets = JSON.parse(localStorage.getItem('shujaaV3')||'[]');
-let settings = JSON.parse(localStorage.getItem('shujaaSettingsV4')||'{"org":"Kianna Cyber Services","iocs":"","user":"admin","pass":"shujaa2025"}');
-let isAuthed = localStorage.getItem('shujaaAuth')==='1';
-let pendingPage=null;
-function save(){localStorage.setItem('shujaaV3',JSON.stringify(tickets)); render();}
-function saveSettings(){settings.org=document.getElementById('orgInput').value; settings.iocs=document.getElementById('customIocs').value; settings.user=document.getElementById('adminUser').value; settings.pass=document.getElementById('adminPass').value; localStorage.setItem('shujaaSettingsV4',JSON.stringify(settings)); alert('Settings Saved'); render();}
-function createTicket(){
-let name=document.getElementById('name').value.trim();
-let phone=document.getElementById('phone').value.trim();
-let email=document.getElementById('email').value.trim();
-let dept=document.getElementById('dept').value;
-let issue=document.getElementById('issue').value;
-let prio=document.getElementById('prio').value;
-let desc=document.getElementById('desc').value.trim();
-if(!name||!phone||!dept||!desc){alert('Please fill Name, Phone, Department and Description *');return;}
-let t={id:Date.now().toString().slice(-6), name, phone, email, dept, issue, prio, desc, time:new Date().toLocaleString(), status:'Open'};
-tickets.push(t); save();
-document.getElementById('myTicket').innerHTML=`<div style="background:#ecfdf5;padding:12px;border-radius:10px">✅ Ticket <b>#${t.id}</b> submitted! ${settings.org} will call you on <b>${phone}</b> soon. Priority: ${prio}</div>`;
-['name','phone','email','desc'].forEach(id=>document.getElementById(id).value='');
-}
-function render(){
-let q=(document.getElementById('searchT')?.value||'').toLowerCase();
-let filtered = tickets.filter(t=> (t.name+t.phone+t.dept+t.issue).toLowerCase().includes(q));
-document.getElementById('count').innerText=tickets.length;
-document.getElementById('homeOrg').innerText=settings.org;
-document.getElementById('tickets').innerHTML=filtered.map(x=>`<div class="ticket prio-${x.prio}"><div><b>#${x.id} ${x.name}</b> <small style="background:#eef2f7;padding:2px 6px;border-radius:10px">${x.prio}</small><br><b>📞 ${x.phone}</b> ${x.email?'| '+x.email:''} | <b>📍 ${x.dept}</b> | ${x.issue}<br>${x.desc}<br><small>${x.time} - ${x.status}</small><br><a href="https://wa.me/254${x.phone.replace(/^0/,'').replace(/[^0-9]/g,'')}" target="_blank"><button class="btn btn-wa" style="padding:5px 10px;margin-top:6px">WhatsApp ${x.name}</button></a> <a href="tel:${x.phone}"><button class="btn" style="padding:5px 10px;margin-top:6px">📞 Call</button></a></div><button onclick="del('${x.id}')" style="height:30px">X</button></div>`).join('')||'No tickets';
-document.getElementById('recent').innerHTML=tickets.slice(-4).reverse().map(x=>`• [${x.prio}] ${x.name} (${x.phone}) - ${x.dept} - ${x.issue}`).join('<br>')||'No recent';
-document.getElementById('orgInput').value=settings.org; document.getElementById('adminUser').value=settings.user; document.getElementById('adminPass').value=settings.pass; document.getElementById('customIocs').value=settings.iocs;
-document.getElementById('authStatus').innerText=isAuthed?'🔒 Admin: '+settings.user:'🔓 Public Mode';
-document.getElementById('blocked').innerText=localStorage.getItem('blocked')||0;
-}
-function del(id){tickets=tickets.filter(t=>t.id!=id); save();}
+let tickets=JSON.parse(localStorage.getItem('shujaaV5')||localStorage.getItem('shujaaV3')||'[]');
+let settings=JSON.parse(localStorage.getItem('shujaaSettingsV4')||'{"org":"Kianna Cyber Services","iocs":"","user":"admin","pass":"shujaa2025"}');
+let isAuthed=localStorage.getItem('shujaaAuth')==='1'; let pendingPage=null;
+function save(){localStorage.setItem('shujaaV5',JSON.stringify(tickets)); render();}
+function saveSettings(){settings.org=document.getElementById('orgInput').value; settings.iocs=document.getElementById('customIocs').value; settings.user=document.getElementById('adminUser').value; settings.pass=document.getElementById('adminPass').value; localStorage.setItem('shujaaSettingsV4',JSON.stringify(settings)); alert('Saved!'); render();}
+function createTicket(){let name=document.getElementById('name').value.trim(); let phone=document.getElementById('phone').value.trim(); let email=document.getElementById('email').value.trim(); let dept=document.getElementById('dept').value; let issue=document.getElementById('issue').value; let prio=document.getElementById('prio').value; let desc=document.getElementById('desc').value.trim(); if(!name||!phone||!dept||!desc){alert('Please fill Name *, Phone *, Department * and Description *');return;} let t={id:Date.now().toString().slice(-6), name, phone, email, dept, issue, prio, desc, time:new Date().toLocaleString(), status:'Open'}; tickets.push(t); save(); document.getElementById('myTicket').innerHTML=`<div style="background:#ecfdf5;border:1px solid #a7f3d0;padding:16px;border-radius:14px">✅ <b>Ticket #${t.id} Created!</b><br>Name: ${name}<br>Phone: ${phone} ${email?'| Email: '+email:''}<br>Location: ${dept}<br>Priority: ${prio}<br>We will call you shortly.</div>`; ['name','phone','email','desc'].forEach(id=>document.getElementById(id).value=''); document.getElementById('dept').value='';}
+function render(){let q=(document.getElementById('searchT')?.value||'').toLowerCase(); let filtered=tickets.filter(t=> (t.name+t.phone+(t.email||'')+t.dept+t.issue).toLowerCase().includes(q)); document.getElementById('count').innerText=tickets.length; document.getElementById('countBadge').innerText=tickets.length; document.getElementById('tickets').innerHTML=filtered.map(x=>`<div class="ticket prio-${x.prio}"><div><b>#${x.id} ${x.name}</b> <span style="background:#f1f5f9;padding:3px 8px;border-radius:10px;font-size:11px">${x.prio} • ${x.dept}</span><br><div style="margin:6px 0;font-size:14px">📞 <b>${x.phone}</b> ${x.email?'| ✉️ '+x.email:''} | 📍 ${x.dept}<br>Issue: ${x.issue}<br><span style="color:#475569">${x.desc}</span><br><small>${x.time}</small></div><a href="https://wa.me/254${x.phone.replace(/^0/,'').replace(/[^0-9]/g,'')}" target="_blank"><button class="btn btn-wa" style="padding:6px 12px">💬 WhatsApp</button></a> <a href="tel:${x.phone}"><button class="btn" style="padding:6px 12px;margin-left:6px">📞 Call</button></a> ${x.email?`<a href="mailto:${x.email}"><button class="btn" style="padding:6px 12px;margin-left:6px;background:#0ea5e9">✉️ Email</button></a>`:''}</div><button onclick="del('${x.id}')" style="background:#fee2e2;border:none;border-radius:8px;padding:6px 10px;cursor:pointer">🗑️</button></div>`).join('')||'<p style="color:#64748b">No tickets found</p>'; document.getElementById('recent').innerHTML=tickets.slice(-5).reverse().map(x=>`<div style="padding:8px 0;border-bottom:1px solid #f1f5f9">• <b>${x.name}</b> (${x.phone}) - ${x.dept} - [${x.prio}] ${x.issue}</div>`).join('')||'No recent'; document.getElementById('orgInput').value=settings.org; document.getElementById('adminUser').value=settings.user; document.getElementById('adminPass').value=settings.pass; document.getElementById('customIocs').value=settings.iocs; document.getElementById('authStatus').innerText=isAuthed?'🔒 Admin: '+settings.user:'🔓 Public Mode'; document.getElementById('blocked').innerText=localStorage.getItem('blocked')||0; }
+function del(id){if(!confirm('Delete ticket?'))return; tickets=tickets.filter(t=>t.id!=id); save();}
 function needAuth(p,b){if(isAuthed)show(p,b); else{pendingPage=p; document.getElementById('loginOverlay').style.display='flex';}}
 function show(p,b){document.getElementById('homePage').style.display=p=='home'?'block':'none'; document.getElementById('dashPage').style.display=p=='dash'?'block':'none'; document.getElementById('ticketsPage').style.display=p=='tickets'?'block':'none'; document.getElementById('scanPage').style.display=p=='scan'?'block':'none'; document.getElementById('settingsPage').style.display=p=='settings'?'block':'none'; if(b){document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active')); b.classList.add('active');}}
-function login(){let u=document.getElementById('loginUser').value; let pw=document.getElementById('loginPass').value; if(u===settings.user&&pw===settings.pass){isAuthed=true; localStorage.setItem('shujaaAuth','1'); closeLogin(); render(); if(pendingPage)show(pendingPage,null); alert('Welcome Admin!');} else alert('Wrong credentials');}
+function login(){let u=document.getElementById('loginUser').value; let pw=document.getElementById('loginPass').value; if(u===settings.user&&pw===settings.pass){isAuthed=true; localStorage.setItem('shujaaAuth','1'); closeLogin(); render(); if(pendingPage)show(pendingPage,null); alert('Welcome Admin!');} else alert('Wrong credentials - Default is admin / shujaa2025');}
 function closeLogin(){document.getElementById('loginOverlay').style.display='none';}
 function logout(){isAuthed=false; localStorage.removeItem('shujaaAuth'); render(); show('home',document.querySelector('.nav button'));}
-function scanIOC(){let v=document.getElementById('ioc').value.toLowerCase(); let base=["195.2.253.92","185.220.101.34","hiloti-malware.com","dropper-update.net"]; let all=[...base,...settings.iocs.split(',').map(s=>s.trim().toLowerCase()).filter(Boolean)]; let r=document.getElementById('result'); if(!v)return; if(all.some(i=>v.includes(i))){r.innerHTML=`<div style="background:#fef2f2;border-left:4px solid red;padding:10px">🚨 THREAT FOUND! Block ${v}</div>`; let b=parseInt(localStorage.getItem('blocked')||0)+1; localStorage.setItem('blocked',b); render();} else r.innerHTML=`<div style="background:#ecfdf5;border-left:4px solid green;padding:10px">✅ SAFE</div>`;}
-function exportTickets(){let txt=tickets.map(t=>`${t.time} | #${t.id} | ${t.name} | ${t.phone} | ${t.email} | ${t.dept} | ${t.prio} | ${t.issue} | ${t.desc}`).join('\n'); let b=new Blob([txt],{type:'text/plain'}); let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Shujaa_Tickets_Full_Report.txt';a.click();}
+function scanIOC(){let v=document.getElementById('ioc').value.toLowerCase(); let base=["195.2.253.92","185.220.101.34","hiloti-malware.com","dropper-update.net"]; let all=[...base,...settings.iocs.split(',').map(s=>s.trim().toLowerCase()).filter(Boolean)]; let r=document.getElementById('result'); if(!v)return; if(all.some(i=>v.includes(i))){r.innerHTML=`<div style="background:#fef2f2;border-left:5px solid #ef4444;padding:14px;border-radius:12px">🚨 THREAT FOUND! ${v} is malicious. Action: Block immediately!</div>`; let b=parseInt(localStorage.getItem('blocked')||0)+1; localStorage.setItem('blocked',b); render();} else r.innerHTML=`<div style="background:#ecfdf5;border-left:5px solid #10b981;padding:14px;border-radius:12px">✅ SAFE - Not in Intel</div>`;}
+function exportTickets(){let txt='Time,ID,Name,Phone,Email,Department,Priority,Issue,Description\n'+tickets.map(t=>`"${t.time}","${t.id}","${t.name}","${t.phone}","${t.email}","${t.dept}","${t.prio}","${t.issue}","${t.desc.replace(/"/g,'""')}"`).join('\n'); let b=new Blob([txt],{type:'text/csv'}); let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Shujaa_Tickets.csv';a.click();}
 render();
 </script>
 </body>
